@@ -24,8 +24,9 @@ Follow these instructions carefully and in order.
 
 (Put your answer here)
 
----
+--- I replaced all the variables that needs to be dynamically changed its integer throughout running the code, where as const is used for a variable that the uses fixed data throughout the page.
 
 ##### How did it go with making the adaptation from concatenations to template literal notation? Do you think you'll mostly use template literal notation from now on?
 
 (Put your answer here)
+Idea is really simple of placing the variable inside ${}. Much simpler to write and read.

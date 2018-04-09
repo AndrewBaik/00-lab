@@ -4,19 +4,19 @@ const names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', '
 
 let allProducts = [];
 const container = document.getElementById('image_container');
-const viewed = [];
-const labels = [];
+let viewed = [];
+let labels = [];
 const pics = [document.getElementById('left'),
                 document.getElementById('center'), //eslint-disable-line
                 document.getElementById('right')]; //eslint-disable-line
 const list = document.getElementById('productlist');
 let totalClicks = 0;
-const views = [];
-const votes = [];
+let views = [];
+let votes = [];
 
 function Product(name) {
   this.name = name;
-  this.path = 'img/' + name + '.jpg';
+  this.path = `img/${name}.jpg`;
   this.votes = 0;
   this.views = 0;
   allProducts.push(this);
@@ -36,6 +36,7 @@ function displayPics(){
   }
   // console.log(rando);
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the variable declaration from `var to `let`.
+
 
   // variable rando (declared with var), can be accessed anywhere inside the displayPics function. But when it's declared as let, since it was declared inside while loop, it's only available for use inside the while loop. So on line 37, console.log of rando did not have the information for output.
 
@@ -65,7 +66,7 @@ function handleClick(event) {
   for(let i = 0; i < names.length; i++){
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
-      console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
+      console.log(`${event.target.id} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`);
     }
   }
   localStorage.busmall = JSON.stringify(allProducts);
@@ -75,8 +76,8 @@ function handleClick(event) {
 
 function showList() {
   for(let i = 0; i < allProducts.length; i++) {
-    const liEl = document.createElement('li');
-    liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
+    var liEl = document.createElement('li');
+    liEl.textContent = `${allProducts[i].name} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`;
     list.appendChild(liEl);
   }
 }
@@ -91,7 +92,7 @@ function makeChartData(){
 
 function makeChart(){
   makeChartData();
-  const ctx = document.getElementById('chartypants').getContext('2d');
+  var ctx = document.getElementById('chartypants').getContext('2d');
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -131,7 +132,7 @@ if(localStorage.busmall){
   allProducts = JSON.parse(localStorage.busmall);
 } else {
   console.log('There is no local storage data; initialize app by creating instances');
-  for(let i = 0; i < names.length; i++) {
+  for(var i = 0; i < names.length; i++) {
     new Product(names[i]);
   }
   console.log(allProducts);
