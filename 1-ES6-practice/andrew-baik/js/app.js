@@ -4,15 +4,15 @@ const names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', '
 
 let allProducts = [];
 const container = document.getElementById('image_container');
-let viewed = [];
-let labels = [];
+const viewed = [];
+const labels = [];
 const pics = [document.getElementById('left'),
                 document.getElementById('center'), //eslint-disable-line
                 document.getElementById('right')]; //eslint-disable-line
 const list = document.getElementById('productlist');
 let totalClicks = 0;
-let views = [];
-let votes = [];
+const views = [];
+const votes = [];
 
 function Product(name) {
   this.name = name;
@@ -38,7 +38,7 @@ function displayPics(){
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the variable declaration from `var to `let`.
 
 
-  // variable rando (declared with var), can be accessed anywhere inside the displayPics function. But when it's declared as let, since it was declared inside while loop, it's only available for use inside the while loop. So on line 37, console.log of rando did not have the information for output.
+  // let have its scope in the block for which they are defined. variable rando (declared with var), can be accessed anywhere inside the displayPics function. But when it's declared as let, since it was declared inside while loop, it's only available for use inside the while loop. So on line 37, console.log of rando did not have the information for output.
 
   // PUT YOUR RESPONSE IN THIS COMMENT
   console.log(viewed);
